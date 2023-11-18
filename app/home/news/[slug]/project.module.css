@@ -1,0 +1,48 @@
+.text,
+.title {
+  color: #000;
+  margin-bottom: 35px;
+}
+
+.text {
+  color: rgb(140, 139, 139);
+  line-height: 23px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  gap: 35px;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.row div {
+  width: 40%;
+}
+
+.image {
+  border-radius: 10px;
+}
+
+.otherNews {
+  color: #000;
+  width: 70%;
+}
+
+.others {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.rowTwo {
+  display: flex;
+  width: 100%;
+  gap: 35px;
+  justify-content: center;
+  margin-bottom: 25px;
+}

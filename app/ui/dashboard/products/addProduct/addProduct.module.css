@@ -22,15 +22,16 @@
   margin-bottom: 30px;
 }
 
-.form input, .form select {
+.form input,
+.form select {
   width: 45%;
 }
 
-.form textarea{
+.form textarea {
   width: 100%;
 }
 
-.form button{
+.form button {
   width: 100%;
   padding: 30px;
   background-color: teal;
@@ -38,4 +39,23 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.imgUpload {
+  display: flex;
+  width: 45%;
+  gap: 10px;
+  align-items: center;
+}
+
+.imgUpload input {
+  height: 40px;
+  padding: 7px;
+  margin-bottom: unset;
+}
+
+.imgUpload button {
+  height: 40px;
+  padding: 10px;
+  width: fit-content;
 }

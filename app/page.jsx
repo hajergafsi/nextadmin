@@ -1,8 +1,7 @@
-// TODO
-const Homepage = () => {
-  return (
-    <div>Homepage</div>
-  )
-}
+import Home from "./home/layout";
 
-export default Homepage
+const Homepage = () => {
+  return <div>Homepage</div>;
+};
+
+export default Homepage;

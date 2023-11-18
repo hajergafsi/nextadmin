@@ -8,6 +8,18 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/home",
+        destination: "/",
+      },
+      {
+        source: "/home/news",
+        destination: "/basinda-biz",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

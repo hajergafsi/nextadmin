@@ -11,6 +11,7 @@ import {
   MdPeople,
   MdOutlineSettings,
   MdHelpCenter,
+  MdNewspaper,
   MdLogout,
 } from "react-icons/md";
 import { auth, signOut } from "@/app/auth";
@@ -30,10 +31,15 @@ const menuItems = [
         icon: <MdSupervisedUserCircle />,
       },
       {
+        title: "Haberler",
+        path: "/dashboard/news",
+        icon: <MdNewspaper />,
+      },
+      /* {
         title: "Products",
         path: "/dashboard/products",
         icon: <MdShoppingBag />,
-      },
+      }, */
       {
         title: "Transactions",
         path: "/dashboard/transactions",

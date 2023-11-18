@@ -1,4 +1,4 @@
-import { Product, User } from "./models";
+import { Product, User, News } from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
@@ -31,33 +31,45 @@ export const fetchUser = async (id) => {
   }
 };
 
-export const fetchProducts = async (q, page) => {
+export const fetchNews = async (q, page) => {
   console.log(q);
   const regex = new RegExp(q, "i");
 
-  const ITEM_PER_PAGE = 2;
+  const ITEM_PER_PAGE = 6;
 
   try {
     connectToDB();
-    const count = await Product.find({ title: { $regex: regex } }).count();
-    const products = await Product.find({ title: { $regex: regex } })
+    const count = await News.find({ title: { $regex: regex } }).count();
+    const news = await News.find({ title: { $regex: regex } })
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (page - 1));
-    return { count, products };
+    return { count, news };
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch products!");
+    throw new Error("Failed to fetch news!");
   }
 };
 
-export const fetchProduct = async (id) => {
+export const fetchNew = async (id) => {
   try {
     connectToDB();
-    const product = await Product.findById(id);
-    return product;
+    const news = await News.findById(id);
+    return news;
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch product!");
+    throw new Error("Failed to fetch news!");
+  }
+};
+
+export const getNewsBySlug = async (slug) => {
+  try {
+    connectToDB();
+    const news = await News.findOne({ slug: slug });
+    console.log(news);
+    return news;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch news!");
   }
 };
 

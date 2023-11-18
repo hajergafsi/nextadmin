@@ -73,6 +73,33 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const newSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    desc: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+    },
+    source: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
+
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const Product =
   mongoose.models.Product || mongoose.model("Product", productSchema);
+export const News = mongoose.models.News || mongoose.model("News", newSchema);

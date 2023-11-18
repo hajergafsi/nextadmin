@@ -10,7 +10,7 @@ const login = async (credentials) => {
     connectToDB();
     const user = await User.findOne({ username: credentials.username });
 
-    if (!user || !user.isAdmin) throw new Error("Wrong credentials!");
+    if (!user || !user.isAdmin) throw new Error("Wrong credentials! not admin");
 
     const isPasswordCorrect = await bcrypt.compare(
       credentials.password,
@@ -56,5 +56,10 @@ export const { signIn, signOut, auth } = NextAuth({
       }
       return session;
     },
+    /* async redirect({ url, baseUrl }) {
+      if (url.startsWith("/")) return `${baseUrl}/${url}`;
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
+    }, */
   },
 });

@@ -1,0 +1,11 @@
+.container {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.line {
+  height: 1px;
+  background: rgba(255, 168, 0, 0.6);
+  margin-inline: 25px;
+  margin-block: 45px;
+}

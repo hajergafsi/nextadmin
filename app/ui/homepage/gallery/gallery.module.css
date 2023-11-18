@@ -1,0 +1,8 @@
+.container {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  padding-block: 40px;
+  align-items: center;
+  gap: 45px;
+}

@@ -1,11 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Product, User } from "./models";
+import { News, Product, User } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
 import { signIn } from "../auth";
+import { redirects } from "@/next.config";
 
 export const addUser = async (formData) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
@@ -69,35 +70,46 @@ export const updateUser = async (formData) => {
   redirect("/dashboard/users");
 };
 
-export const addProduct = async (formData) => {
-  const { title, desc, price, stock, color, size } =
-    Object.fromEntries(formData);
-
+export const addNews = async (formData) => {
+  console.log(formData);
+  const { title, desc, slug, image, source } = Object.fromEntries(formData);
+  console.log(image);
   try {
     connectToDB();
 
-    const newProduct = new Product({
+    const newItem = new News({
       title,
       desc,
-      price,
-      stock,
-      color,
-      size,
+      slug,
+      image,
+      source,
     });
-
-    await newProduct.save();
+    await newItem.save();
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to create product!");
+    throw new Error("Failed to create news!");
+  }
+
+  revalidatePath("/dashboard/news");
+  redirect("/dashboard/news");
+};
+
+export const deleteNews = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+    await News.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to delete product!");
   }
 
   revalidatePath("/dashboard/products");
-  redirect("/dashboard/products");
 };
 
-export const updateProduct = async (formData) => {
-  const { id, title, desc, price, stock, color, size } =
-    Object.fromEntries(formData);
+export const updateNews = async (formData) => {
+  const { id, title, desc, source, slug } = Object.fromEntries(formData);
 
   try {
     connectToDB();
@@ -105,10 +117,8 @@ export const updateProduct = async (formData) => {
     const updateFields = {
       title,
       desc,
-      price,
-      stock,
-      color,
-      size,
+      source,
+      slug,
     };
 
     Object.keys(updateFields).forEach(
@@ -116,14 +126,14 @@ export const updateProduct = async (formData) => {
         (updateFields[key] === "" || undefined) && delete updateFields[key]
     );
 
-    await Product.findByIdAndUpdate(id, updateFields);
+    await News.findByIdAndUpdate(id, updateFields);
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to update product!");
+    throw new Error("Failed to update news!");
   }
 
-  revalidatePath("/dashboard/products");
-  redirect("/dashboard/products");
+  revalidatePath("/dashboard/news");
+  redirect("/dashboard/news");
 };
 
 export const deleteUser = async (formData) => {
@@ -140,26 +150,16 @@ export const deleteUser = async (formData) => {
   revalidatePath("/dashboard/products");
 };
 
-export const deleteProduct = async (formData) => {
-  const { id } = Object.fromEntries(formData);
-
-  try {
-    connectToDB();
-    await Product.findByIdAndDelete(id);
-  } catch (err) {
-    console.log(err);
-    throw new Error("Failed to delete product!");
-  }
-
-  revalidatePath("/dashboard/products");
-};
-
 export const authenticate = async (prevState, formData) => {
   const { username, password } = Object.fromEntries(formData);
 
-  try {
-    await signIn("credentials", { username, password });
-  } catch (err) {
-    return "Wrong Credentials!";
-  }
+  /*  try { */
+  await signIn("credentials", {
+    username,
+    password,
+  });
+  /* } catch (err) {
+    console.log(err);
+    return "login failed!";
+  } */
 };

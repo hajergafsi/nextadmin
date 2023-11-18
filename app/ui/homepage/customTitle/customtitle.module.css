@@ -1,0 +1,11 @@
+.parallelogram {
+  transform: skewY(-3deg);
+  padding: 25px;
+  background: rgb(255 168 0);
+}
+
+.parallelogram p {
+  transform: skewY(3deg);
+  font-size: 55px;
+  font-weight: 600;
+}
