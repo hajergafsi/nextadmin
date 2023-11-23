@@ -7,9 +7,9 @@ const UpperBanner = () => {
     <div className={styles.upperBanner}>
       <div className={styles.titleContainer}>
         <h1 className={styles.title}>
-          İşimiz, Gücümüz Var, Bursa&apos;ya Sözümüz Var.
+          İşimiz, Gücümüz Var, Marmara Adalar&apos;a Sözümüz Var.
         </h1>
-        <span className={styles.hashTag}>#BursaİçinCanlaBaşla</span>
+        <span className={styles.hashTag}>#MarmaraAdalarİçinCanlaBaşla</span>
       </div>
       <div className={styles.logo}>
         <Image src="/12.png" alt="alinur" width={480} height={520} />

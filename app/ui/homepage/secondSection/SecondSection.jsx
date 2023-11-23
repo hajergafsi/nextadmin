@@ -7,7 +7,7 @@ export const SecondSection = () => {
     <div className={styles.second}>
       <Image
         className={styles.image}
-        src="/city.png"
+        src="/adalar.png"
         alt="alinur"
         width={650}
         height={650}
@@ -15,13 +15,13 @@ export const SecondSection = () => {
       <div>
         <div className={styles.textSection}>
           <div className={styles.firstText}>
-            <h2>Canla Başla Bursa..</h2>
+            <h2>Canla Başla Marmara Adalar..</h2>
             <h3>Hep beraber başardık.....</h3>
           </div>
           <div className={styles.textBox}>
             <h2>Hep Beraber Başardık...</h2>
             <h3>
-              2017&apos;den bu yana tüm Bursalı vatandaşlarımızla beraber
+              2014&apos;den bu yana tüm Adalı vatandaşlarımızla beraber
               başardık.
             </h3>
           </div>

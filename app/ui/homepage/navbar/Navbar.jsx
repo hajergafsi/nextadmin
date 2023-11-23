@@ -7,7 +7,13 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       <Link href={"/home"} className={styles.logo}>
-        <Image src="/logo-update.png" alt="facebook" width={150} height={130} />
+        <Image src="/logo-update.png" alt="logo" width={150} height={130} />
+        <Image
+          src="/marmara-belediye.jpeg"
+          alt="logo"
+          width={130}
+          height={130}
+        />
       </Link>
       <div className={styles.links}>
         <Link className={styles.link} href={"/home/about"}>
