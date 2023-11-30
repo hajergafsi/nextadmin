@@ -18,6 +18,7 @@ const AboutUs = ({ news }) => {
       >
         {[...news].slice(0, 4).map((item) => (
           <Card
+            type={"news"}
             key={item._id}
             title={item.title}
             image={item.image}
@@ -26,7 +27,7 @@ const AboutUs = ({ news }) => {
           />
         ))}
       </div>
-      <Link href={"/home/news"} className={inheritCard.button}>
+      <Link href={"/news"} className={inheritCard.button}>
         Daha Fazla
       </Link>
     </div>

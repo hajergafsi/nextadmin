@@ -1,17 +1,17 @@
-.container{
+.container {
   background-color: var(--bgSoft);
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
 }
 
-.top{
+.top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.addButton{
+.addButton {
   padding: 10px;
   background-color: #5d57c9;
   color: var(--text);
@@ -20,31 +20,31 @@
   cursor: pointer;
 }
 
-.table{
+.table {
   width: 100%;
 }
 
-.table td{
+.table td {
   padding: 10px;
 }
 
-.product{
+.product {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.productImage{
+.productImage {
   border-radius: 50%;
   object-fit: cover;
 }
 
-.buttons{
+.buttons {
   display: flex;
   gap: 10px;
 }
 
-.button{
+.button {
   padding: 5px 10px;
   border-radius: 5px;
   color: var(--text);
@@ -52,10 +52,17 @@
   cursor: pointer;
 }
 
-.view{
+.view {
   background-color: teal;
 }
 
-.delete{
+.delete {
   background-color: crimson;
+}
+
+.row {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+  flex-wrap: wrap;
 }

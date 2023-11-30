@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { News, Product, User } from "./models";
+import { News, Product, Projects, SliderItem, User } from "./models";
 import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
@@ -71,9 +71,8 @@ export const updateUser = async (formData) => {
 };
 
 export const addNews = async (formData) => {
-  console.log(formData);
   const { title, desc, slug, image, source } = Object.fromEntries(formData);
-  console.log(image);
+
   try {
     connectToDB();
 
@@ -94,6 +93,49 @@ export const addNews = async (formData) => {
   redirect("/dashboard/news");
 };
 
+export const addSliderItem = async (formData) => {
+  const { image } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newItem = new SliderItem({
+      image,
+    });
+
+    await newItem.save();
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to create slider!");
+  }
+
+  revalidatePath("/dashboard/slider");
+  redirect("/dashboard/slider");
+};
+
+export const addProject = async (formData) => {
+  const { title, desc, slug, image, time } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+    console.log(formData);
+    const newItem = new Projects({
+      title,
+      desc,
+      slug,
+      image,
+      time,
+    });
+    await newItem.save();
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to create project!");
+  }
+
+  revalidatePath("/dashboard/projects");
+  redirect("/dashboard/projects");
+};
+
 export const deleteNews = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
@@ -102,10 +144,24 @@ export const deleteNews = async (formData) => {
     await News.findByIdAndDelete(id);
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to delete product!");
+    throw new Error("Failed to delete news!");
   }
 
-  revalidatePath("/dashboard/products");
+  revalidatePath("/dashboard/news");
+};
+
+export const deleteProject = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+    await Projects.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to delete project!");
+  }
+
+  revalidatePath("/dashboard/projects");
 };
 
 export const updateNews = async (formData) => {
@@ -134,6 +190,35 @@ export const updateNews = async (formData) => {
 
   revalidatePath("/dashboard/news");
   redirect("/dashboard/news");
+};
+
+export const updateProject = async (formData) => {
+  const { id, title, desc, time, slug, image } = Object.fromEntries(formData);
+  console.log(time);
+  try {
+    connectToDB();
+
+    const updateFields = {
+      title,
+      desc,
+      time,
+      slug,
+      image,
+    };
+
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+
+    await Projects.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to update project!");
+  }
+
+  revalidatePath("/dashboard/projects");
+  redirect("/dashboard/projects");
 };
 
 export const deleteUser = async (formData) => {

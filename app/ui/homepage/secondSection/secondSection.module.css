@@ -58,3 +58,38 @@
 .image {
   z-index: 0;
 }
+
+@media screen and (max-width: 1280px) {
+  .second {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .second {
+    padding-inline: 10px;
+  }
+  .image {
+    width: 400px;
+    height: 400px;
+  }
+  .textBox {
+    margin-left: unset;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .links {
+    justify-content: flex-end;
+  }
+  .link {
+    display: none;
+  }
+  .image {
+    width: 390px;
+    height: 390px;
+  }
+}

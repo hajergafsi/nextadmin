@@ -5,13 +5,16 @@ import { WhatWeDid } from "../ui/homepage/whatWeDid/WhatWeDid";
 import WhatWeAreDoing from "../ui/homepage/whatWeAreDoing/WhatWeAreDoing";
 import GallerySection from "../ui/homepage/gallery/Gallery";
 import AboutUs from "../ui/homepage/aboutUs/AboutUs";
-import { fetchNews } from "../lib/data";
+import { fetchNews, fetchSlider } from "../lib/data";
 import styles from "../ui/homepage/homepage.module.css";
+import Slider from "../ui/homepage/slider/Slider";
 
 const Home = async () => {
   const { count, news } = await fetchNews("", 1);
+  const { sliders } = await fetchSlider("", 1);
   return (
     <div>
+      <Slider images={sliders} />
       <UpperBanner />
       <SecondSection />
       <WhatWeDid />

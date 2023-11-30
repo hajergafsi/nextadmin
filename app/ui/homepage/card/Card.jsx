@@ -4,7 +4,7 @@ import Image from "next/image";
 import { limitStringTo15Words } from "@/app/lib/functions";
 import Link from "next/link";
 
-export const Card = ({ title, description, image, slug }) => {
+export const Card = ({ title, description, image, slug, type }) => {
   return (
     <div className={styles.card}>
       <div className={styles.cover} />
@@ -19,7 +19,10 @@ export const Card = ({ title, description, image, slug }) => {
       <p className={styles.description}>
         {limitStringTo15Words(description || "")}
       </p>
-      <Link href={`/home/news/${slug}`} className={styles.button}>
+      <Link
+        href={`/${type === "news" ? "news" : "projects"}/${slug}`}
+        className={styles.button}
+      >
         Devamı...
       </Link>
     </div>

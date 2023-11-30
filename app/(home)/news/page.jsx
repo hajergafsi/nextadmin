@@ -11,6 +11,7 @@ const Page = async () => {
       <CustomTitle title={"Basında Biz"} />
       <div className={styles.cardContainer}>
         <WeDidCard
+          type={"news"}
           img={news[0].image}
           bigFormat={true}
           slug={news[0].slug}
@@ -19,8 +20,9 @@ const Page = async () => {
           date={new Date(news[0].createdAt).toDateString()}
         />
         <div>
-          {news.slice(1).map((item) => (
+          {news.slice(1, 3).map((item) => (
             <WeDidCard
+              type={"news"}
               key={item._id}
               img={item.image}
               slug={item.slug}
@@ -31,6 +33,20 @@ const Page = async () => {
             />
           ))}
         </div>
+      </div>
+      <div className={styles.cardContainer}>
+        {news.slice(3).map((item) => (
+          <WeDidCard
+            type={"news"}
+            key={item._id}
+            img={item.image}
+            slug={item.slug}
+            bigFormat={false}
+            title={item.title}
+            desc={item.desc}
+            date={new Date(item.createdAt).toDateString()}
+          />
+        ))}
       </div>
     </div>
   );

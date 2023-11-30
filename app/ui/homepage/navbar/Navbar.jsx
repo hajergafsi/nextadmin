@@ -6,7 +6,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <Link href={"/home"} className={styles.logo}>
+      <Link href={"/"} className={styles.logo}>
         <Image src="/logo-update.png" alt="logo" width={150} height={130} />
         <Image
           src="/marmara-belediye.jpeg"
@@ -16,19 +16,19 @@ const Navbar = () => {
         />
       </Link>
       <div className={styles.links}>
-        <Link className={styles.link} href={"/home/about"}>
+        <Link className={styles.link} href={"/about"}>
           Süleyman Aksoy Hakkında
         </Link>
-        <Link className={styles.link} href={"/home/whatWeDid"}>
+        <Link className={styles.link} href={"/whatWeDid"}>
           Neler Yaptık?
         </Link>
-        <Link className={styles.link} href={"/home/whatWeDoing"}>
+        <Link className={styles.link} href={"/whatWeDoing"}>
           Neler Yapıyoruz?
         </Link>
-        <Link className={styles.link} href={"/home/gallery"}>
+        <Link className={styles.link} href={"/gallery"}>
           Galeri
         </Link>
-        <Link className={styles.link} href={"/home/contact"}>
+        <Link className={styles.link} href={"/contact"}>
           İletişim
         </Link>
       </div>

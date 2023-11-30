@@ -12,7 +12,13 @@ const UpperBanner = () => {
         <span className={styles.hashTag}>#MarmaraAdalarİçinCanlaBaşla</span>
       </div>
       <div className={styles.logo}>
-        <Image src="/12.png" alt="alinur" width={480} height={520} />
+        <Image
+          className={styles.image}
+          src="/12.png"
+          alt="alinur"
+          width={480}
+          height={520}
+        />
       </div>
     </div>
   );

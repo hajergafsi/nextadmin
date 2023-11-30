@@ -6,8 +6,8 @@ import { Provider } from "react-redux"; */
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Lama Dev Next.js Admin Dashboard",
-  description: "Next.js 14 Tutorial",
+  title: "Suleyman Aksoy",
+  description: "Marmara adalar belediye baskani",
 };
 
 export default function RootLayout({ children }) {

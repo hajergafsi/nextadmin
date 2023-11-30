@@ -4,7 +4,7 @@ import styles from "./weDidCard.module.css";
 import Link from "next/link";
 import { limitStringTo15Words } from "@/app/lib/functions";
 
-const WeDidCard = ({ img, title, date, desc, bigFormat, slug }) => {
+const WeDidCard = ({ img, title, date, desc, bigFormat, slug, type }) => {
   return (
     <div className={styles.weDidCard}>
       <div
@@ -27,7 +27,7 @@ const WeDidCard = ({ img, title, date, desc, bigFormat, slug }) => {
           <p>{limitStringTo15Words(desc || "")}</p>
         </div>
       </div>
-      <Link href={`/home/news/${slug}`} className={styles.readMore}>
+      <Link href={`/${type}/${slug}`} className={styles.readMore}>
         Devamı...
       </Link>
       {/* <div className={styles.readMore}>Devamı...</div> */}

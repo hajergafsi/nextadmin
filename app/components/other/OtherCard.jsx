@@ -7,7 +7,7 @@ import Link from "next/link";
 const OtherCard = ({ title, description, image, slug }) => {
   return (
     <div className={styles.container}>
-      <Link href={`/home/news/${slug}`}>
+      <Link href={`/news/${slug}`}>
         <Image
           className={styles.image}
           src={image || "/card.jpg"}

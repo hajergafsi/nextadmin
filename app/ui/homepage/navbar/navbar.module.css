@@ -49,12 +49,8 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .social {
+  .links {
     display: none;
-  }
-  .logo {
-    text-align: left;
-    font-size: 24px;
   }
 }
 

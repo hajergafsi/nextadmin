@@ -4,15 +4,13 @@ import styles from "./sidebar.module.css";
 import {
   MdDashboard,
   MdSupervisedUserCircle,
-  MdShoppingBag,
-  MdAttachMoney,
-  MdWork,
-  MdAnalytics,
-  MdPeople,
+  MdImage,
+  MdSlideshow,
   MdOutlineSettings,
   MdHelpCenter,
   MdNewspaper,
   MdLogout,
+  MdLaptopMac,
 } from "react-icons/md";
 import { auth, signOut } from "@/app/auth";
 
@@ -35,19 +33,19 @@ const menuItems = [
         path: "/dashboard/news",
         icon: <MdNewspaper />,
       },
-      /* {
-        title: "Products",
-        path: "/dashboard/products",
-        icon: <MdShoppingBag />,
-      }, */
       {
-        title: "Transactions",
-        path: "/dashboard/transactions",
-        icon: <MdAttachMoney />,
+        title: "Projeler",
+        path: "/dashboard/projects",
+        icon: <MdLaptopMac />,
+      },
+      {
+        title: "Slider",
+        path: "/dashboard/slider",
+        icon: <MdSlideshow />,
       },
     ],
   },
-  {
+  /*   {
     title: "Analytics",
     list: [
       {
@@ -66,7 +64,7 @@ const menuItems = [
         icon: <MdPeople />,
       },
     ],
-  },
+  }, */
   {
     title: "User",
     list: [
