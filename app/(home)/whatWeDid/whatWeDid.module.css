@@ -13,3 +13,25 @@
   padding-inline: 10%;
   gap: 15px;
 }
+
+@media screen and (max-width: 1024px) {
+  .cardContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .links {
+    justify-content: flex-end;
+  }
+  .link {
+    display: none;
+  }
+}

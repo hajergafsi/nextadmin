@@ -1,9 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./navbar.module.css";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className={styles.container}>
       <Link href={"/"} className={styles.logo}>
@@ -32,13 +34,20 @@ const Navbar = () => {
           İletişim
         </Link>
       </div>
-      <div>
-        <input
-          placeholder="Ara.."
-          className={styles.inputContainer}
-          type="text"
-        />
+      <div className={styles.burger} onClick={() => setOpen(!open)}>
+        <div className={styles.line}></div>
+        <div className={styles.line}></div>
+        <div className={styles.line}></div>
       </div>
+      {open && (
+        <div className={styles.responsiveMenu}>
+          <Link href={"/about"}>Süleyman Aksoy Hakkında</Link>
+          <Link href={"/whatWeDid"}>Neler Yaptık?</Link>
+          <Link href={"/whatWeDoing"}>Neler Yapıyoruz?</Link>
+          <Link href={"/gallery"}>Galeri</Link>
+          <Link href={"/contact"}>İletişim</Link>
+        </div>
+      )}
     </div>
   );
 };

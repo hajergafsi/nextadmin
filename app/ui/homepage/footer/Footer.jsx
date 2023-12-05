@@ -12,9 +12,9 @@ const Footer = () => {
     <div className={styles.Footer}>
       <Image
         style={{ cursor: "pointer" }}
-        src={"/footer.png"}
+        src={"/marmara-belediye.jpeg"}
         alt=""
-        width={450}
+        width={100}
         height={100}
         className={styles.productImage}
       />
@@ -39,7 +39,7 @@ const Footer = () => {
         </span>
       </div>
       <p className={styles.copyright}>
-        Alinur Aktaş - Tüm hakları saklıdır. © 2023
+        Suleyman Aksoy - Tüm hakları saklıdır. © 2023
       </p>
     </div>
   );

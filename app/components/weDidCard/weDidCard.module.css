@@ -47,3 +47,27 @@
 .readMore:hover {
   background-color: rgb(0 83 160);
 }
+
+@media screen and (max-width: 768px) {
+  .weDidCard .row {
+    width: 370px;
+    flex-wrap: wrap;
+  }
+  .weDidCard .image {
+    width: 370px;
+    height: 250px;
+  }
+  .textContainer {
+    width: 370px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .weDidCard {
+    width: 350px;
+  }
+  .weDidCard .image {
+    width: 320px;
+    height: 200px;
+  }
+}

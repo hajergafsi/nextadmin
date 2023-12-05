@@ -46,3 +46,15 @@
   justify-content: center;
   margin-bottom: 25px;
 }
+
+@media screen and (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  .rowTwo {
+    flex-wrap: wrap;
+  }
+  .burger {
+    align-self: end;
+  }
+}
