@@ -8,6 +8,7 @@ import AboutUs from "../ui/homepage/aboutUs/AboutUs";
 import { fetchNews, fetchSlider } from "../lib/data";
 import styles from "../ui/homepage/homepage.module.css";
 import Slider from "../ui/homepage/slider/Slider";
+import SocialMedia from "../ui/homepage/socialMedia/SocialMedia";
 
 const Home = async () => {
   const { count, news } = await fetchNews("", 1);
@@ -22,6 +23,7 @@ const Home = async () => {
       <WhatWeAreDoing />
       <GallerySection />
       <AboutUs news={news} />
+      <SocialMedia />
     </div>
   );
 };

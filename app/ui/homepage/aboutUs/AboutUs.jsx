@@ -7,8 +7,6 @@ import { Card } from "../card/Card";
 import Link from "next/link";
 
 const AboutUs = ({ news }) => {
-  /*  const { news } = useAppSelector((state) => state.news); */
-  console.log(news);
   return (
     <div className={inherited.container}>
       <CustomTitle title={"Basında Biz"} />
