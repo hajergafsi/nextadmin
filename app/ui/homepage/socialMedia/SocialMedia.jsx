@@ -13,16 +13,22 @@ const SocialMedia = () => {
     <div className={inherited.container}>
       <CustomTitle title={"Sosyal Media"} />
       <div
-        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
+        style={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "center",
+          gap: 35,
+          flexWrap: "wrap",
+        }}
       >
         <InstagramEmbed
           url="https://www.instagram.com/p/C0TVibho67t/"
-          width={450}
+          width={550}
         />
 
         <TwitterEmbed
           url="https://x.com/suleymanaksoy_1/status/1732024064770711987?s=20"
-          width={450}
+          width={550}
         />
       </div>
     </div>
